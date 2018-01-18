@@ -40,3 +40,17 @@ let rec number_in_months = (dates: listOfDates, months: list(int)) =>
     number_in_month(dates, List.hd(months))
     + number_in_months(dates, List.tl(months));
   };
+
+/* Write a function get_nth that takes a list of strings and an int n and returns the
+   nth element of the list where the head of the list is 1st.  Do not worry about the case where the list
+   has too few elements: your function may apply hd or tl to the empty list in this case, which is okay.
+   */
+let get_nth = (stringList: list(string), n: int) => {
+  let rec loop = (xs, counter) =>
+    if (counter == n) {
+      List.hd(xs);
+    } else {
+      loop(List.tl(xs), counter + 1);
+    };
+  loop(stringList, 1);
+};
